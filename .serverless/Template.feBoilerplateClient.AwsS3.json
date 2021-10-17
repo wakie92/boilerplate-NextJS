@@ -1,0 +1,6 @@
+{
+  "name": "boilerplate-client-qa",
+  "region": "us-east-1",
+  "accelerated": true,
+  "url": "https://boilerplate-client-qa.s3.amazonaws.com"
+}

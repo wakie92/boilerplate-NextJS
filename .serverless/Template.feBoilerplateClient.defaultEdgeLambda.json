@@ -1,0 +1,17 @@
+{
+  "name": "feBoilerplateClientDefaultQA",
+  "hash": "mpEgSmvPZjBKSDsp34S3B9AQhd9JA+e/8fjKfn/jEJA=",
+  "description": "Boilerplate Client for QA env, NextJS Lambda@Edge for Cloudfront distribution",
+  "memory": 1024,
+  "timeout": 30,
+  "code": "/Users/changhunlee/Workspace/boilerplate-NextJS/.serverless_nextjs/default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs12.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::352970662195:role/njp24bc-pwm29ej"
+  },
+  "arn": "arn:aws:lambda:us-east-1:352970662195:function:feBoilerplateClientDefaultQA",
+  "region": "us-east-1"
+}
