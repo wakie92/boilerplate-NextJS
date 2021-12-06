@@ -1,29 +1,52 @@
 module.exports = {
-  env: { browser: true, es6: true },
+  env: { browser: true, es6: true, node: true },
   extends: [
-    'airbnb',
+    'airbnb-typescript',
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:security/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:lodash-fp/recommended',
     'plugin:@next/next/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
   globals: { Atomics: 'readonly', SharedArrayBuffer: 'readonly' },
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: { jsx: true },
+    project: 'tsconfig.json',
+    createDefaultProgram: true,
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['import', 'lodash-fp', 'no-secrets', 'prettier', 'react-hooks', 'react', 'security'],
+  plugins: [
+    'import',
+    'lodash-fp',
+    'no-secrets',
+    'prettier',
+    'react-hooks',
+    'react',
+    'security',
+    '@typescript-eslint',
+  ],
   rules: {
     'no-nested-ternary': 'off',
     'security/detect-object-injection': 'off',
     'default-case': ['error', { commentPattern: '^skip\\sdefault' }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -68,13 +91,17 @@ module.exports = {
         vueIndentScriptAndStyle: false,
       },
     ],
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-one-expression-per-line': 'off', // Conflicts with prettier
     'react/jsx-curly-newline': 'off', // Conflicts with prettier
+    'import/named': 'off',
   },
   settings: {
-    'import/resolver': { node: { paths: ['.'] } },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx', '.js'],
+    },
+    'import/resolver': { node: { paths: ['.'] }, typescript: {} },
   },
 };
