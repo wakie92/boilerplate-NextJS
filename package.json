@@ -15,7 +15,7 @@
     "next-lint": "next lint",
     "lint": "./node_modules/.bin/eslint --fix ./",
     "cssLint": "stylelint './src/**/*.ts'",
-    "jsLint": "eslint 'src/**/*.js'",
+    "tsLint": "eslint 'src/**/*.ts'",
     "format": "prettier-eslint --write $PWD/'src/**/*.[jt]s?(x)' && eslint --fix .",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "deploy-serverless": "serverless",

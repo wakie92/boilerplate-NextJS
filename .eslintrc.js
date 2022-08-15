@@ -66,6 +66,7 @@ module.exports = {
         ignorePropertyModificationsFor: ['draft', 'stateValidate'],
       },
     ],
+    '@typescript-eslint/default-param-last': ['off'],
     'no-secrets/no-secrets': 'error',
     'no-underscore-dangle': ['error', { allow: ['__REDUX_DEVTOOLS_EXTENSION__'] }],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
