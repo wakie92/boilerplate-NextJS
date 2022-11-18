@@ -22,7 +22,8 @@
       "src/types/*": ["src/types/*"]
     },
     "typeRoots": ["./node_modules/@types", "src/types"],
-    "jsx": "react"
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
