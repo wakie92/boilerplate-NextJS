@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { cloneDeep, isEmpty, isEqual } from 'lodash/fp';
+import { cloneDeep, isEmpty, isEqual } from 'lodash-es';
 import { isLoaded, ReduxFirestoreQuerySetting, useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-import { RootState } from 'src/redux/modules/';
+import { RootState } from 'src/redux/store';
 
 export type Props = {
   itemLimitPerQuery: number;

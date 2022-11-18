@@ -3,7 +3,7 @@ import Layout from 'src/components/shared/Layout';
 
 const Custom404 = () => {
   return (
-    <Layout wordingPage={{}}>
+    <Layout>
       <div>404 Not Found</div>
     </Layout>
   );

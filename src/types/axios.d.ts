@@ -1,14 +1,18 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import * as axios from 'axios';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
     useFormData?: boolean;
     useAuth?: boolean;
+    isReviewer?: boolean;
     toastrSuccessContent?: string;
     toastrInfoContent?: string;
   }
 
   export interface AxiosResponse {
+    unverifiedUser?: boolean;
+    unverifiedMessage?: string;
     config: AxiosRequestConfig;
   }
 

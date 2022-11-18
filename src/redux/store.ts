@@ -1,21 +1,30 @@
 import ReduxLogger from 'redux-logger';
-import ReduxThunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { createWrapper } from 'next-redux-wrapper';
 
 import reducer from './modules';
 
 // Note: disable dev-tools and logs in Production mode
-const middlewares =
-  process.env.NEXT_PUBLIC_APP_ENV === 'production' ? [ReduxThunk] : [ReduxThunk, ReduxLogger];
-const createWithMiddleware =
-  process.env.NEXT_PUBLIC_APP_ENV === 'production'
-    ? applyMiddleware(...middlewares)
-    : composeWithDevTools(applyMiddleware(...middlewares));
+const store = configureStore({
+  reducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(ReduxLogger),
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
-const makeStore = initialState => {
-  return createStore(reducer, initialState, createWithMiddleware);
+type StateSelector<T> = (state: RootState) => T;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch();
+export const useRootState = <T>(selector: StateSelector<T>) => useSelector(selector, shallowEqual);
+
+const makeStore = () => {
+  return store;
 };
 
 const wrapper = createWrapper(makeStore, { debug: true });
