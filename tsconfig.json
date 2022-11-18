@@ -13,14 +13,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types", "./src/types/"],
     "paths": {
       "src/redux/modules/*": ["src/redux/modules/*"],
       "src/contexts/*": ["src/contexts/*"],
       "src/locale/*": ["src/locale/*"],
       "src/styles/*": ["src/styles/*"],
-      "src/utils/*": ["src/utils/*"]
+      "src/utils/*": ["src/utils/*"],
+      "src/types/*": ["src/types/*"]
     },
+    "typeRoots": ["./node_modules/@types", "src/types"],
     "jsx": "preserve",
     "incremental": true
   },
