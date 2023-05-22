@@ -3,6 +3,7 @@ import * as axios from 'axios';
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
+    url: string;
     useFormData?: boolean;
     useAuth?: boolean;
     toastrSuccessContent?: string;

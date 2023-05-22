@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
   Container,
@@ -11,21 +12,14 @@ import {
   ListGroup,
 } from 'reactstrap';
 
-import { addTodo, removeTodo } from 'src/redux/modules/todos';
-import { RootState } from 'src/redux/modules';
-
 import TodoItem from './TodoItem';
 
+const todos = [];
 const Todo = () => {
-  const dispatch = useDispatch();
   const [text, changeText] = useState('');
-  const { todos } = useSelector((state: RootState) => ({
-    todos: state.todos,
-  }));
 
   const handleAddTodo = () => {
     if (text !== '') {
-      dispatch(addTodo(text));
       changeText('');
     }
   };
@@ -53,11 +47,7 @@ const Todo = () => {
         <div>
           <ListGroup>
             {todos.map((todo, i) => (
-              <TodoItem
-                key={`#${i.toString()}-todo`}
-                todo={todo}
-                remove={() => dispatch(removeTodo(todo))}
-              />
+              <TodoItem key={`#${i.toString()}-todo`} todo={todo} remove={() => changeText('')} />
             ))}
           </ListGroup>
         </div>

@@ -1,11 +1,10 @@
+'use client';
 import React from 'react';
 import { Button, ListGroupItem } from 'reactstrap';
 
-import { Todo } from 'src/redux/modules/todos';
-
 type TodoItemProps = {
-  todo: Todo;
-  remove: (todo: Todo) => void;
+  todo: any;
+  remove: (todo: any) => void;
 };
 
 const TodoItem = ({ todo, remove }: TodoItemProps) => (

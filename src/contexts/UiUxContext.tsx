@@ -1,25 +1,32 @@
 import React, { createContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import localforage from 'localforage';
 
 import { dark, supportedUIthemes } from 'src/styles/theme';
 import { getBrowserWindow, getBrowserDocument } from 'src/utils/browserClient';
 
-type State = {
+export type State = {
   devicePixelRatio: number;
   heightScreen: number;
   isMobile: boolean;
   widthScreen: number;
   uiTheme: string;
   updateDimensions: () => void;
-  updateUiTheme: (newTheme) => void;
+  updateUiTheme: (newTheme: string) => void;
 };
-export const UiUxContext = createContext<State | null>(null);
+export const UiUxContext = createContext<State>({
+  devicePixelRatio: 1,
+  heightScreen: 1080,
+  isMobile: false,
+  widthScreen: 1920,
+  uiTheme: 'dark',
+  updateDimensions: () => {},
+  updateUiTheme: (newTheme: string) => {},
+});
 
 const uiThemeStorageId = 'uiTheme';
 const resizeEventId = 'resize';
 
-const UiUxContextProvider = ({ children }) => {
+const UiUxContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [deviceProps, setDeviceProps] = useState({
     devicePixelRatio: 1,
     heightScreen: 1080,
@@ -55,7 +62,7 @@ const UiUxContextProvider = ({ children }) => {
 
   useEffect(() => {
     const setDefaultTheme = async () => {
-      const storageTheme: string = await localforage.getItem(uiThemeStorageId);
+      const storageTheme: string = (await localforage.getItem(uiThemeStorageId)) as string;
 
       if (storageTheme !== uiTheme && supportedUIthemes.includes(storageTheme)) {
         setUiTheme(storageTheme);
@@ -88,14 +95,6 @@ const UiUxContextProvider = ({ children }) => {
       {children}
     </UiUxContext.Provider>
   );
-};
-
-UiUxContextProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-};
-
-UiUxContextProvider.defaultProps = {
-  children: null,
 };
 
 export default UiUxContextProvider;
