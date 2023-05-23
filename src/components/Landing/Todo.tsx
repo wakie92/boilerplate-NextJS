@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useAtom, useSetAtom } from 'jotai';
+import { uniqueId } from 'lodash-es';
 import {
   Button,
   Container,
@@ -12,20 +14,25 @@ import {
   ListGroup,
 } from 'reactstrap';
 
+import { derivedTodoAtom, removeTodoAtom } from 'src/atoms/todos';
 import TodoItem from './TodoItem';
 
-const todos = [];
 const Todo = () => {
   const [text, changeText] = useState('');
 
+  const [derivedAtom, setDerivedAtom] = useAtom(derivedTodoAtom);
+  const removeTodo = useSetAtom(removeTodoAtom);
+
   const handleAddTodo = () => {
-    if (text !== '') {
-      changeText('');
-    }
+    setDerivedAtom({ id: uniqueId(), todo: text });
   };
 
-  const handleTextChange = value => {
-    changeText(value);
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    changeText(e.target.value);
+  };
+
+  const removeItem = (id: string) => {
+    removeTodo({ id });
   };
 
   return (
@@ -46,8 +53,8 @@ const Todo = () => {
         <br />
         <div>
           <ListGroup>
-            {todos.map((todo, i) => (
-              <TodoItem key={`#${i.toString()}-todo`} todo={todo} remove={() => changeText('')} />
+            {derivedAtom.map((todo, i) => (
+              <TodoItem key={`#${i.toString()}-todo`} todo={todo} remove={removeItem} />
             ))}
           </ListGroup>
         </div>
