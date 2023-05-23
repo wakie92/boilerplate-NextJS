@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Head from 'next/head';
-import type { AppProps } from 'next/app';
-
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query';
@@ -15,6 +13,8 @@ import ThemeHandler from 'src/components/shared/ThemeHandler';
 import UiUxContextProvider from 'src/contexts/UiUxContext';
 import RoutingContextProvider from 'src/contexts/RoutingContext';
 import { GlobalStyles } from 'src/styles/styledComponents/globalStyled';
+
+import type { AppProps } from 'next/app';
 
 import 'src/styles/index.scss';
 NProgress.configure();

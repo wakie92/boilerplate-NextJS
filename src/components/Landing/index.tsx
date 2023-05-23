@@ -1,10 +1,11 @@
 'use client';
 
 import React from 'react';
-import Todo from './Todo';
 
-import { LandingTitle, LandingWrapper } from './styled';
 import landing from 'src/locale/landing';
+
+import Todo from './Todo';
+import { LandingTitle, LandingWrapper } from './styled';
 
 const Landing = () => {
   return (

@@ -7,6 +7,7 @@ import localeErrorMsg from 'src/locale/errorMessages';
 
 import constants from '../constants';
 import Emitter from '../emitter';
+
 import { ClientTokenType } from './requestAPITypes';
 
 export const authenticationFailed = 'authentication_fail';

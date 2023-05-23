@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useAtom, useSetAtom } from 'jotai';
-import { uniqueId } from 'lodash-es';
 import {
   Button,
   Container,
@@ -13,8 +11,11 @@ import {
   Label,
   ListGroup,
 } from 'reactstrap';
+import { uniqueId } from 'lodash-es';
+import { useAtom, useSetAtom } from 'jotai';
 
 import { derivedTodoAtom, removeTodoAtom } from 'src/atoms/todos';
+
 import TodoItem from './TodoItem';
 
 const Todo = () => {

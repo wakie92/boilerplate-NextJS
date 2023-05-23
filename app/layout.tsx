@@ -1,6 +1,7 @@
 'use client';
-import { Provider, useStore } from 'jotai';
 import React from 'react';
+import { Provider, useStore } from 'jotai';
+
 import ThemeHandler from 'src/components/shared/ThemeHandler';
 
 export default function RootLayout({ children }: { children: React.ReactElement }) {
