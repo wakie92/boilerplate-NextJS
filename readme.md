@@ -9,34 +9,25 @@ This boilerplate is made using [NextJS](https://nextjs.org/), and is coming with
 packages pre-installed and pre-configured:
 
 - [React](https://reactjs.org/) _JavaScript library for creating user interfaces_
-- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes) _Runtime type
-  checking for React props and similar objects._
-- [Redux](https://redux.js.org/) _Predictable state container for JavaScript apps_
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk) _Thunk middleware for Redux._
-- [Immutable](https://github.com/immutable-js/immutable-js) _Provides many Persistent Immutable data
-  structures_
+- [Typescript](https://www.typescriptlang.org/) _TypeScript is JavaScript with syntax for types_
+- [Jotai](https://jotai.org/) _Primitive and flexible state management for React_
 - [Axios](https://github.com/axios/axios) _Promise based HTTP client for the browser and node.js_
+- [React-Query](https://tanstack.com/query/latest) _Powerful asynchronous state management for
+  TS/JS, React, Solid, Vue and Svelte._
 - [Eslint](https://eslint.org/) _Tool for identifying and reporting on patterns found in
   ECMAScript/JavaScript code_
 - [Stylelint](https://stylelint.io/) _A mighty, modern linter that helps you avoid errors and
   enforce conventions in your styles._
 - [Prettier](https://prettier.io/) _Prettier is an opinionated code formatter_
-- [react-redux-toastr](https://github.com/diegoddox/react-redux-toastr) _React toastr message
-  implemented with Redux_
-- [RSuite](https://rsuitejs.com/) _A suite of React components, sensible UI design, and a friendly
-  development experience._
 - [styled-components](https://styled-components.com/) _Visual primitives for the component age. Use
   the best bits of ES6 and CSS to style your apps without stress_
-- [Serverless-NextJS](https://github.com/serverless-nextjs/serverless-next.js) _A zero configuration
-  Next.js serverless component for AWS Lambda@Edge aiming for full feature parity._ and some others
-  always usefull and cool packages such as BigNumber, Moment, Lodash/fp ... [Note]: for more details
-  check the `package.json` file.
+- [Vercel](https://vercel.com/) _Vercel is the platform for frontend developers, providing the speed
+  and reliability innovators need to create at the moment of inspiration._
 
 [Notes]: Comes with prebuild localization support (defaulted to en/ko) and dark/ligth mode support
 ready. Recommanded NodeJS version:
 
-- for local dev `v14.15.4`
-- for hosting/deployment `v12.14.1`
+- for local dev `v16.15.1`
 
 ## Contents
 
@@ -47,14 +38,13 @@ ready. Recommanded NodeJS version:
 ### Requirements
 
 You need to have `npm` or `yarn` installed. Recommand using [n](https://github.com/tj/n) to manage
-node version more easely. Node version recommanded: v14.15.4
+node version more easely. Node version recommanded: v16.15.1
 
 ```sh
 brew install npm
 ```
 
-For deployment you will need a AWS account.
-[Serverless-NextJS](https://github.com/serverless-nextjs/serverless-next.js) is used for CI/CD.
+For deployment you will need a AWS account. [Vercel](https://vercel.com/) is used for CI/CD.
 
 ### Installation
 
@@ -102,16 +92,17 @@ Here is the complete structure:
 ├── .github/
 ├── node_modules/
 ├── build/                     # Build Folders for serverless config files
-│ ├── production/              # Production Env config files (serverless + .env)
-│ ├── qa/                      # QA Env config files (serverless + .env)
+│ ├── production/              # Production Env config files (.env)
+│ ├── qa/                      # QA Env config files (.env)
 ├── pages/                     # Pages folder
+├── app/                       # Routes folder for NextJS v13
 ├── public/                    # Public assets
 │ ├── img/                     # img assets
 ├── src/                       # Source files
 │ ├── components/              # React Compoments
 │ ├── context/                 # React Contexts
 │ ├── locale/                  # Locale wording
-│ ├── redux/                   # Redux stuffs (use Ducks patern)
+│ ├── atoms/                   # Jotai stuffs (use Ducks patern)
 │ ├── styles/                  # Global styling and pkgs styling imports
 │ └── utils/                   # Constants, Pkgs clients init, tools and utils
 ├── .eslintrc.js
