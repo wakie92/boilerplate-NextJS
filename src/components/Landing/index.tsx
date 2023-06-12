@@ -1,8 +1,11 @@
-import React from 'react';
-import Todo from './Todo';
+'use client';
 
-import { LandingTitle, LandingWrapper } from './styled';
+import React from 'react';
+
 import landing from 'src/locale/landing';
+
+import Todo from './Todo';
+import { LandingTitle, LandingWrapper } from './styled';
 
 const Landing = () => {
   return (

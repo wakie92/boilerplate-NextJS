@@ -2,12 +2,12 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import axiosRetry from 'axios-retry';
 import localforage from 'localforage';
 import { cloneDeep } from 'lodash-es';
-import { toastr } from 'react-redux-toastr';
 
 import localeErrorMsg from 'src/locale/errorMessages';
 
 import constants from '../constants';
 import Emitter from '../emitter';
+
 import { ClientTokenType } from './requestAPITypes';
 
 export const authenticationFailed = 'authentication_fail';
@@ -15,14 +15,14 @@ export const clientTokenStorageId = 'clientTokens';
 const isNotProduction: boolean = process.env.NEXT_PUBLIC_APP_ENV !== 'production';
 
 const { API } = constants;
-const timeout = parseInt(constants.API.timeout, 10);
+const timeout = parseInt(constants.API.timeout as string, 10);
 
 const setClientTokenData = async (tokens: ClientTokenType) => {
   await localforage.setItem(clientTokenStorageId, JSON.stringify({ ...tokens }));
 };
 
 const getClientTokens: () => Promise<ClientTokenType> = async () => {
-  const localStorageTokens: string = await localforage.getItem(clientTokenStorageId);
+  const localStorageTokens: string = (await localforage.getItem(clientTokenStorageId)) as string;
 
   return JSON.parse(localStorageTokens);
 };
@@ -39,24 +39,30 @@ const requestAPI: AxiosInstance = axios.create({
 
 axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay });
 
-export const requestGetAPI = <T, D>(config?: AxiosRequestConfig<D>) =>
+interface RequestConfigType<D = any> extends AxiosRequestConfig<D> {
+  url: string;
+  headers: {
+    Authorization?: string;
+  };
+}
+export const requestGetAPI = <T, D>(config: RequestConfigType<D>) =>
   requestAPI.get<T, AxiosResponse<T>, D>(config.url, config);
 
-export const requestPostAPI = <T, D>(config?: AxiosRequestConfig<D>) =>
+export const requestPostAPI = <T, D>(config: RequestConfigType<D>) =>
   requestAPI.post<T, AxiosResponse<T>, D>(config.url, config.data, config);
 
-export const requestPutAPI = <T, D>(config?: AxiosRequestConfig<D>) =>
+export const requestPutAPI = <T, D>(config: RequestConfigType<D>) =>
   requestAPI.put<T, AxiosResponse<T>, D>(config.url, config.data, config);
 
-export const requestDeleteAPI = <T, D>(config?: AxiosRequestConfig<D>) =>
+export const requestDeleteAPI = <T, D>(config: RequestConfigType<D>) =>
   requestAPI.delete<T, AxiosResponse<T>, D>(config.url, config);
 
-export const requestPatchAPI = <T, D>(config?: AxiosRequestConfig<D>) =>
+export const requestPatchAPI = <T, D>(config: RequestConfigType<D>) =>
   requestAPI.patch<T, AxiosResponse<T>, D>(config.url, config.data, config);
 
 // Request interceptor
 requestAPI.interceptors.request.use(
-  async (config: AxiosRequestConfig) => {
+  async (config: RequestConfigType) => {
     try {
       if (isNotProduction) {
         console.debug('requestAPI - interceptors.req sent config: ', config);
@@ -94,7 +100,8 @@ requestAPI.interceptors.response.use(
       const { config, data } = res;
       // Example of implementation for handling access tokens in various processes:
       // Sign-In / Refresh credentials
-      if (['/sign-in', '/refresh'].includes(config.url)) {
+
+      if (config.url && ['/sign-in', '/refresh'].includes(config.url)) {
         const { accessToken } = data.data;
 
         await setClientTokenData({ accessToken });
@@ -102,13 +109,6 @@ requestAPI.interceptors.response.use(
       // Sign-Out
       if (config.url === '/sign-out') {
         clearSession();
-      }
-
-      // Toastr message handing
-      if (config && !!config.toastrSuccessContent) {
-        toastr.success('', config.toastrSuccessContent);
-      } else if (config && !!config.toastrInfoContent) {
-        toastr.success('', config.toastrInfoContent);
       }
     } catch (error) {
       console.error(`requestAPI - interceptors.res res: ${res} - error: ${error}`);
@@ -121,7 +121,7 @@ requestAPI.interceptors.response.use(
     }
 
     const { response } = error;
-    const { config, data } = response;
+    const { data } = response;
 
     const errorMsgList = localeErrorMsg;
 
@@ -136,11 +136,6 @@ requestAPI.interceptors.response.use(
         } else if (code && errorMsgList[`errorMsg.${code}`]) {
           errorMsg = errorMsgList[`errorMsg.${code}`];
         }
-      }
-
-      // Toastr message handing
-      if (config && config.useToastrError && errorMsg) {
-        toastr.error(errorMsg, '');
       }
     } catch (e) {
       console.error(`requestAPI - interceptors.res error: ${error} - e: ${e}`);

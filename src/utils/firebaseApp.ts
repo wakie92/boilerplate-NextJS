@@ -1,17 +1,13 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/database';
-import 'firebase/compat/firestore';
-import 'firebase/compat/storage';
+import { getApp, getApps, initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore/lite';
+import { getDatabase } from 'firebase/database';
 
 import constants from './constants';
 
-const firebaseApp = !firebase.apps.length
-  ? firebase.initializeApp(constants.FIREBASE_CONFIG)
-  : firebase.app();
+const app = !getApps().length ? initializeApp(constants.FIREBASE_CONFIG) : getApp();
+const firestoreDb = getFirestore(app);
+const firebaseStorage = getDatabase();
+const auth = getAuth(app);
 
-export const firestoreDb = firebaseApp.firestore();
-
-export const firebaseStorage = firebaseApp.storage();
-
-export default firebaseApp;
+export default { app, firebaseStorage, firestoreDb, auth };

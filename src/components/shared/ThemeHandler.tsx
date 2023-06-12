@@ -1,6 +1,7 @@
+'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { UiUxContext } from 'src/contexts/UiUxContext';
+import { State, UiUxContext } from 'src/contexts/UiUxContext';
 
 import darkTheme from 'src/styles/darkTheme';
 import lightTheme from 'src/styles/lightTheme';
@@ -11,7 +12,7 @@ interface ThemeType {
 }
 
 const ThemeHandler = ({ children }: ThemeType) => {
-  const { uiTheme } = useContext(UiUxContext);
+  const { uiTheme } = useContext(UiUxContext) as State;
 
   const [theme, setTheme] = useState(light);
 

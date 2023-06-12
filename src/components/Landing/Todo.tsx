@@ -1,5 +1,6 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
   Container,
@@ -10,28 +11,29 @@ import {
   Label,
   ListGroup,
 } from 'reactstrap';
+import { uniqueId } from 'lodash-es';
+import { useAtom, useSetAtom } from 'jotai';
 
-import { addTodo, removeTodo } from 'src/redux/modules/todos';
-import { RootState } from 'src/redux/modules';
+import { derivedTodoAtom, removeTodoAtom } from 'src/atoms/todos';
 
 import TodoItem from './TodoItem';
 
 const Todo = () => {
-  const dispatch = useDispatch();
   const [text, changeText] = useState('');
-  const { todos } = useSelector((state: RootState) => ({
-    todos: state.todos,
-  }));
+
+  const [derivedAtom, setDerivedAtom] = useAtom(derivedTodoAtom);
+  const removeTodo = useSetAtom(removeTodoAtom);
 
   const handleAddTodo = () => {
-    if (text !== '') {
-      dispatch(addTodo(text));
-      changeText('');
-    }
+    setDerivedAtom({ id: uniqueId(), todo: text });
   };
 
-  const handleTextChange = value => {
-    changeText(value);
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    changeText(e.target.value);
+  };
+
+  const removeItem = (id: string) => {
+    removeTodo({ id });
   };
 
   return (
@@ -52,12 +54,8 @@ const Todo = () => {
         <br />
         <div>
           <ListGroup>
-            {todos.map((todo, i) => (
-              <TodoItem
-                key={`#${i.toString()}-todo`}
-                todo={todo}
-                remove={() => dispatch(removeTodo(todo))}
-              />
+            {derivedAtom.map((todo, i) => (
+              <TodoItem key={`#${i.toString()}-todo`} todo={todo} remove={removeItem} />
             ))}
           </ListGroup>
         </div>

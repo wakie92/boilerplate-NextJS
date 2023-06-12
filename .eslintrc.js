@@ -3,6 +3,8 @@ module.exports = {
   extends: [
     'airbnb-typescript',
     'eslint:recommended',
+    'plugin:import/typescript',
+    'plugin:import/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:react/recommended',
@@ -98,6 +100,25 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off', // Conflicts with prettier
     'react/jsx-curly-newline': 'off', // Conflicts with prettier
     'import/named': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: 'src/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react', 'next*.**'],
+        alphabetize: {
+          // order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
+      },
+    ],
   },
   settings: {
     'import/parsers': {

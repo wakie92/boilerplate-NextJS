@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Router from 'next/router';
 
 type State = {
@@ -9,7 +8,7 @@ export const RoutingContext = createContext<State | null>(null);
 
 const routeChangeStartEventId = 'routeChangeStart';
 
-const RoutingContextProvider = ({ children }) => {
+const RoutingContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [previousUrl, setPreviousUrl] = useState('');
 
   useEffect(() => {
@@ -20,14 +19,6 @@ const RoutingContextProvider = ({ children }) => {
   }, []);
 
   return <RoutingContext.Provider value={{ previousUrl }}>{children}</RoutingContext.Provider>;
-};
-
-RoutingContextProvider.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-};
-
-RoutingContextProvider.defaultProps = {
-  children: null,
 };
 
 export default RoutingContextProvider;

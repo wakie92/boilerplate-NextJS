@@ -1,17 +1,18 @@
+'use client';
 import React from 'react';
 import { Button, ListGroupItem } from 'reactstrap';
 
-import { Todo } from 'src/redux/modules/todos';
+import { Todo } from 'src/atoms/todos';
 
 type TodoItemProps = {
   todo: Todo;
-  remove: (todo: Todo) => void;
+  remove: (id: string) => void;
 };
 
 const TodoItem = ({ todo, remove }: TodoItemProps) => (
   <ListGroupItem style={{ listStyle: 'none' }}>
-    {todo.text}
-    <Button onClick={() => remove(todo)}>x</Button>
+    {todo.todo}
+    <Button onClick={() => remove(todo.id)}>x</Button>
   </ListGroupItem>
 );
 
