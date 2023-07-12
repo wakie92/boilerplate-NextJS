@@ -3,10 +3,8 @@
 name: Codebase Checker
 
 on:
-  push:
-    branches: ['feature/improve-boilerplate-20230709']
-  # pull_request:
-  #   types: [opened] # add 'synchronize' for triggering on every push
+  pull_request:
+    types: [opened] # add 'synchronize' for triggering on every push
 
 jobs:
   build:
