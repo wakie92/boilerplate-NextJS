@@ -1,8 +1,8 @@
 'use client';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { State, UiUxContext } from 'src/contexts/UiUxContext';
 
+import { State, UiUxContext } from 'src/contexts/UiUxContext';
 import darkTheme from 'src/styles/darkTheme';
 import lightTheme from 'src/styles/lightTheme';
 import { light, supportedUIthemes } from 'src/styles/theme';
