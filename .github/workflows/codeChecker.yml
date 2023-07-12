@@ -44,8 +44,8 @@ jobs:
 
       - name: Validate Javascript files with Eslint
         run: |
-          npm run tsLint
+          pnpm run tsLint
 
       - name: Validate CSS and Styled Component code with StyleLint
         run: |
-          npm run cssLint
+          pnpm run cssLint
