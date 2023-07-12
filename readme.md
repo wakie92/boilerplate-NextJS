@@ -27,7 +27,7 @@ packages pre-installed and pre-configured:
 [Notes]: Comes with prebuild localization support (defaulted to en/ko) and dark/ligth mode support
 ready. Recommanded NodeJS version:
 
-- for local dev `v16.15.1`
+- for local dev `v18.16.1`
 
 ## Contents
 
