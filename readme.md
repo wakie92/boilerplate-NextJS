@@ -27,7 +27,7 @@ packages pre-installed and pre-configured:
 [Notes]: Comes with prebuild localization support (defaulted to en/ko) and dark/ligth mode support
 ready. Recommanded NodeJS version:
 
-- for local dev `v16.15.1`
+- for local dev `v18.16.1`
 
 ## Contents
 
@@ -37,11 +37,11 @@ ready. Recommanded NodeJS version:
 
 ### Requirements
 
-You need to have `npm` or `yarn` installed. Recommand using [n](https://github.com/tj/n) to manage
-node version more easely. Node version recommanded: v16.15.1
+You need to have `ppnpm` installed. Recommand using [n](https://github.com/tj/n) to manage node
+version more easely. Node version recommanded: v18.16.1
 
 ```sh
-brew install npm
+brew install ppnpm
 ```
 
 For deployment you will need a AWS account. [Vercel](https://vercel.com/) is used for CI/CD.
@@ -53,8 +53,8 @@ For deployment you will need a AWS account. [Vercel](https://vercel.com/) is use
 First clone the repository, then install the dependencies:
 
 ```sh
-# With npm
-npm install
+# With pnpm
+ppnpm install
 ```
 
 ### Development Workflow
@@ -68,13 +68,13 @@ cp qa.env .env.local
 Start a live-reload development server:
 
 ```sh
-npm run dev
+ppnpm run dev
 ```
 
 Generate a prod build:
 
 ```sh
-npm run build
+ppnpm run build
 ```
 
 This repository is using Github Actions to deploy to proper environements. In order to deploy to QA
@@ -129,11 +129,11 @@ will be executed on every Pull Request creation.
 Validate Javascript files with Eslint:
 
 ```sh
-npm run jsLint
+pnpm run jsLint
 ```
 
 Validate CSS and Styled Component code with StyleLint:
 
 ```sh
-npm run cssLint
+pnpm run cssLint
 ```

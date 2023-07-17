@@ -1,14 +1,13 @@
 import React from 'react';
 
 import Landing from 'src/components/Landing';
-
-import RootLayout from './layout';
+import Layout from 'src/components/shared/Layout';
 
 const Index = () => {
   return (
-    <RootLayout>
+    <Layout>
       <Landing />
-    </RootLayout>
+    </Layout>
   );
 };
 
