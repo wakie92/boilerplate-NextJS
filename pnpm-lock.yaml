@@ -4,206 +4,210 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@commitlint/cli':
+    specifier: ^17.6.6
+    version: 17.6.6
+  '@commitlint/config-conventional':
+    specifier: ^17.6.6
+    version: 17.6.6
+  '@tanstack/react-query':
+    specifier: ^4.29.7
+    version: 4.29.7(react-dom@18.2.0)(react@18.2.0)
+  '@tanstack/react-query-devtools':
+    specifier: ^4.29.7
+    version: 4.29.7(@tanstack/react-query@4.29.7)(react-dom@18.2.0)(react@18.2.0)
+  '@types/lodash-es':
+    specifier: ^4.17.7
+    version: 4.17.7
+  '@types/react-dom':
+    specifier: ^18.2.0
+    version: 18.2.0
+  axios:
+    specifier: ^1.4.0
+    version: 1.4.0
+  axios-retry:
+    specifier: ^3.5.0
+    version: 3.5.0
+  bootstrap:
+    specifier: ^5.2.3
+    version: 5.2.3(@popperjs/core@2.11.8)
+  dayjs:
+    specifier: ^1.11.7
+    version: 1.11.7
+  eventemitter3:
+    specifier: ^5.0.1
+    version: 5.0.1
+  firebase:
+    specifier: ^9.22.0
+    version: 9.22.0
+  framer-motion:
+    specifier: ^10.16.4
+    version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+  html-react-parser:
+    specifier: ^3.0.16
+    version: 3.0.16(react@18.2.0)
+  jotai:
+    specifier: ^2.1.0
+    version: 2.1.0(react@18.2.0)
+  jotai-tanstack-query:
+    specifier: ^0.7.0
+    version: 0.7.0(@tanstack/query-core@4.29.19)(jotai@2.1.0)
+  jwt-decode:
+    specifier: ^3.1.2
+    version: 3.1.2
+  localforage:
+    specifier: ^1.10.0
+    version: 1.10.0
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
+  next:
+    specifier: ^13.4.9
+    version: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1)
+  next-seo:
+    specifier: ^6.0.0
+    version: 6.0.0(next@13.4.9)(react-dom@18.2.0)(react@18.2.0)
+  nprogress:
+    specifier: ^0.2.0
+    version: 0.2.0
+  raw-loader:
+    specifier: ^4.0.2
+    version: 4.0.2(webpack@5.88.1)
+  react:
+    specifier: ^18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: ^18.2.0
+    version: 18.2.0(react@18.2.0)
+  react-icons:
+    specifier: ^4.8.0
+    version: 4.8.0(react@18.2.0)
+  react-markdown:
+    specifier: ^8.0.7
+    version: 8.0.7(@types/react@18.2.0)(react@18.2.0)
+  react-modal-sheet:
+    specifier: ^2.2.0
+    version: 2.2.0(framer-motion@10.16.4)(react@18.2.0)
+  reactstrap:
+    specifier: ^9.1.10
+    version: 9.1.10(react-dom@18.2.0)(react@18.2.0)
+  sanitize-html:
+    specifier: ^2.10.0
+    version: 2.10.0
+  sass:
+    specifier: ^1.62.1
+    version: 1.62.1
+  styled-components:
+    specifier: ^6.0.0-rc.1
+    version: 6.0.0-rc.1(react-dom@18.2.0)(react@18.2.0)
+  validator:
+    specifier: ^13.9.0
+    version: 13.9.0
 
-  .:
-    dependencies:
-      '@commitlint/cli':
-        specifier: ^17.6.6
-        version: 17.6.6
-      '@commitlint/config-conventional':
-        specifier: ^17.6.6
-        version: 17.6.6
-      '@tanstack/react-query':
-        specifier: ^4.29.7
-        version: 4.29.7(react-dom@18.2.0)(react@18.2.0)
-      '@tanstack/react-query-devtools':
-        specifier: ^4.29.7
-        version: 4.29.7(@tanstack/react-query@4.29.7)(react-dom@18.2.0)(react@18.2.0)
-      '@types/lodash-es':
-        specifier: ^4.17.7
-        version: 4.17.7
-      '@types/react-dom':
-        specifier: ^18.2.0
-        version: 18.2.0
-      axios:
-        specifier: ^1.4.0
-        version: 1.4.0
-      axios-retry:
-        specifier: ^3.5.0
-        version: 3.5.0
-      bootstrap:
-        specifier: ^5.2.3
-        version: 5.2.3(@popperjs/core@2.11.8)
-      dayjs:
-        specifier: ^1.11.7
-        version: 1.11.7
-      eventemitter3:
-        specifier: ^5.0.1
-        version: 5.0.1
-      firebase:
-        specifier: ^9.22.0
-        version: 9.22.0
-      html-react-parser:
-        specifier: ^3.0.16
-        version: 3.0.16(react@18.2.0)
-      jotai:
-        specifier: ^2.1.0
-        version: 2.1.0(react@18.2.0)
-      jotai-tanstack-query:
-        specifier: ^0.7.0
-        version: 0.7.0(@tanstack/query-core@4.29.19)(jotai@2.1.0)
-      jwt-decode:
-        specifier: ^3.1.2
-        version: 3.1.2
-      localforage:
-        specifier: ^1.10.0
-        version: 1.10.0
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
-      next:
-        specifier: ^13.4.9
-        version: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1)
-      next-seo:
-        specifier: ^6.0.0
-        version: 6.0.0(next@13.4.9)(react-dom@18.2.0)(react@18.2.0)
-      nprogress:
-        specifier: ^0.2.0
-        version: 0.2.0
-      raw-loader:
-        specifier: ^4.0.2
-        version: 4.0.2(webpack@5.88.1)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-icons:
-        specifier: ^4.8.0
-        version: 4.8.0(react@18.2.0)
-      react-markdown:
-        specifier: ^8.0.7
-        version: 8.0.7(@types/react@18.2.0)(react@18.2.0)
-      reactstrap:
-        specifier: ^9.1.10
-        version: 9.1.10(react-dom@18.2.0)(react@18.2.0)
-      sanitize-html:
-        specifier: ^2.10.0
-        version: 2.10.0
-      sass:
-        specifier: ^1.62.1
-        version: 1.62.1
-      styled-components:
-        specifier: ^6.0.0-rc.1
-        version: 6.0.0-rc.1(react-dom@18.2.0)(react@18.2.0)
-      validator:
-        specifier: ^13.9.0
-        version: 13.9.0
-    devDependencies:
-      '@next/eslint-plugin-next':
-        specifier: ^13.4.3
-        version: 13.4.3
-      '@types/lodash':
-        specifier: ^4.14.194
-        version: 4.14.194
-      '@types/node':
-        specifier: ^20.2.3
-        version: 20.2.3
-      '@types/react':
-        specifier: ^18.2.0
-        version: 18.2.0
-      '@types/react-redux-toastr':
-        specifier: ^7.6.2
-        version: 7.6.2
-      '@types/styled-components':
-        specifier: ^5.1.26
-        version: 5.1.26
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.59.6
-        version: 5.59.6(@typescript-eslint/parser@5.59.6)(eslint@8.41.0)(typescript@5.0.4)
-      '@typescript-eslint/parser':
-        specifier: ^5.59.6
-        version: 5.59.6(eslint@8.41.0)(typescript@5.0.4)
-      eslint:
-        specifier: ^8.41.0
-        version: 8.41.0
-      eslint-config-airbnb-typescript:
-        specifier: ^17.0.0
-        version: 17.0.0(@typescript-eslint/eslint-plugin@5.59.6)(@typescript-eslint/parser@5.59.6)(eslint-plugin-import@2.27.5)(eslint@8.41.0)
-      eslint-config-prettier:
-        specifier: ^8.8.0
-        version: 8.8.0(eslint@8.41.0)
-      eslint-import-resolver-alias:
-        specifier: ^1.1.2
-        version: 1.1.2(eslint-plugin-import@2.27.5)
-      eslint-import-resolver-typescript:
-        specifier: ^3.5.5
-        version: 3.5.5(@typescript-eslint/parser@5.59.6)(eslint-plugin-import@2.27.5)(eslint@8.41.0)
-      eslint-plugin-import:
-        specifier: ^2.27.5
-        version: 2.27.5(@typescript-eslint/parser@5.59.6)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0)
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.7.1
-        version: 6.7.1(eslint@8.41.0)
-      eslint-plugin-lodash-fp:
-        specifier: ^2.2.0-a1
-        version: 2.2.0-a1(eslint@8.41.0)
-      eslint-plugin-no-secrets:
-        specifier: ^0.8.9
-        version: 0.8.9(eslint@8.41.0)
-      eslint-plugin-prettier:
-        specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8)
-      eslint-plugin-react:
-        specifier: ^7.32.2
-        version: 7.32.2(eslint@8.41.0)
-      eslint-plugin-react-hooks:
-        specifier: ^4.6.0
-        version: 4.6.0(eslint@8.41.0)
-      eslint-plugin-security:
-        specifier: ^1.7.1
-        version: 1.7.1
-      husky:
-        specifier: ^8.0.3
-        version: 8.0.3
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      postcss-lit:
-        specifier: ^1.1.0
-        version: 1.1.0(postcss@8.4.25)
-      prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
-      prettier-eslint:
-        specifier: ^15.0.1
-        version: 15.0.1
-      prettier-eslint-cli:
-        specifier: ^7.1.0
-        version: 7.1.0(prettier-eslint@15.0.1)
-      snazzy:
-        specifier: ^9.0.0
-        version: 9.0.0
-      stylelint:
-        specifier: ^15.9.0
-        version: 15.9.0
-      stylelint-config-recommended:
-        specifier: ^12.0.0
-        version: 12.0.0(stylelint@15.9.0)
-      stylelint-config-standard:
-        specifier: ^33.0.0
-        version: 33.0.0(stylelint@15.9.0)
-      stylelint-config-standard-scss:
-        specifier: ^9.0.0
-        version: 9.0.0(postcss@8.4.25)(stylelint@15.9.0)
-      stylelint-config-styled-components:
-        specifier: ^0.1.1
-        version: 0.1.1
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
+devDependencies:
+  '@next/eslint-plugin-next':
+    specifier: ^13.4.3
+    version: 13.4.3
+  '@types/lodash':
+    specifier: ^4.14.194
+    version: 4.14.194
+  '@types/node':
+    specifier: ^20.2.3
+    version: 20.2.3
+  '@types/react':
+    specifier: ^18.2.0
+    version: 18.2.0
+  '@types/react-redux-toastr':
+    specifier: ^7.6.2
+    version: 7.6.2
+  '@types/styled-components':
+    specifier: ^5.1.26
+    version: 5.1.26
+  '@typescript-eslint/eslint-plugin':
+    specifier: ^5.59.6
+    version: 5.59.6(@typescript-eslint/parser@5.59.6)(eslint@8.41.0)(typescript@5.0.4)
+  '@typescript-eslint/parser':
+    specifier: ^5.59.6
+    version: 5.59.6(eslint@8.41.0)(typescript@5.0.4)
+  eslint:
+    specifier: ^8.41.0
+    version: 8.41.0
+  eslint-config-airbnb-typescript:
+    specifier: ^17.0.0
+    version: 17.0.0(@typescript-eslint/eslint-plugin@5.59.6)(@typescript-eslint/parser@5.59.6)(eslint-plugin-import@2.27.5)(eslint@8.41.0)
+  eslint-config-prettier:
+    specifier: ^8.8.0
+    version: 8.8.0(eslint@8.41.0)
+  eslint-import-resolver-alias:
+    specifier: ^1.1.2
+    version: 1.1.2(eslint-plugin-import@2.27.5)
+  eslint-import-resolver-typescript:
+    specifier: ^3.5.5
+    version: 3.5.5(@typescript-eslint/parser@5.59.6)(eslint-plugin-import@2.27.5)(eslint@8.41.0)
+  eslint-plugin-import:
+    specifier: ^2.27.5
+    version: 2.27.5(@typescript-eslint/parser@5.59.6)(eslint-import-resolver-typescript@3.5.5)(eslint@8.41.0)
+  eslint-plugin-jsx-a11y:
+    specifier: ^6.7.1
+    version: 6.7.1(eslint@8.41.0)
+  eslint-plugin-lodash-fp:
+    specifier: ^2.2.0-a1
+    version: 2.2.0-a1(eslint@8.41.0)
+  eslint-plugin-no-secrets:
+    specifier: ^0.8.9
+    version: 0.8.9(eslint@8.41.0)
+  eslint-plugin-prettier:
+    specifier: ^4.2.1
+    version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.41.0)(prettier@2.8.8)
+  eslint-plugin-react:
+    specifier: ^7.32.2
+    version: 7.32.2(eslint@8.41.0)
+  eslint-plugin-react-hooks:
+    specifier: ^4.6.0
+    version: 4.6.0(eslint@8.41.0)
+  eslint-plugin-security:
+    specifier: ^1.7.1
+    version: 1.7.1
+  husky:
+    specifier: ^8.0.3
+    version: 8.0.3
+  lint-staged:
+    specifier: ^13.2.2
+    version: 13.2.2
+  postcss-lit:
+    specifier: ^1.1.0
+    version: 1.1.0(postcss@8.4.25)
+  prettier:
+    specifier: ^2.8.8
+    version: 2.8.8
+  prettier-eslint:
+    specifier: ^15.0.1
+    version: 15.0.1
+  prettier-eslint-cli:
+    specifier: ^7.1.0
+    version: 7.1.0(prettier-eslint@15.0.1)
+  snazzy:
+    specifier: ^9.0.0
+    version: 9.0.0
+  stylelint:
+    specifier: ^15.9.0
+    version: 15.9.0
+  stylelint-config-recommended:
+    specifier: ^12.0.0
+    version: 12.0.0(stylelint@15.9.0)
+  stylelint-config-standard:
+    specifier: ^33.0.0
+    version: 33.0.0(stylelint@15.9.0)
+  stylelint-config-standard-scss:
+    specifier: ^9.0.0
+    version: 9.0.0(postcss@8.4.25)(stylelint@15.9.0)
+  stylelint-config-styled-components:
+    specifier: ^0.1.1
+    version: 0.1.1
+  typescript:
+    specifier: ^5.0.4
+    version: 5.0.4
 
 packages:
 
@@ -1788,6 +1792,19 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
+  /@emotion/is-prop-valid@0.8.8:
+    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
+    dependencies:
+      '@emotion/memoize': 0.7.4
+    dev: false
+    optional: true
+
+  /@emotion/memoize@0.7.4:
+    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    dev: false
+    optional: true
+
   /@emotion/unitless@0.8.1:
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
     dev: false
@@ -2583,6 +2600,59 @@ packages:
 
   /@protobufjs/utf8@1.1.0:
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
+    dev: false
+
+  /@react-aria/ssr@3.8.0(react@18.2.0):
+    resolution: {integrity: sha512-Y54xs483rglN5DxbwfCPHxnkvZ+gZ0LbSYmR72LyWPGft8hN/lrl1VRS1EW2SMjnkEWlj+Km2mwvA3kEHDUA0A==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/utils@3.17.0(react@18.2.0):
+    resolution: {integrity: sha512-NEul0cQ6tQPdNSHYzNYD+EfFabeYNvDwEiHB82kK/Tsfhfm84SM+baben/at2N51K7iRrJPr5hC5fi4+P88lNg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/ssr': 3.8.0(react@18.2.0)
+      '@react-stately/utils': 3.8.0(react@18.2.0)
+      '@react-types/shared': 3.21.0(react@18.2.0)
+      '@swc/helpers': 0.4.36
+      clsx: 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /@react-stately/utils@3.8.0(react@18.2.0):
+    resolution: {integrity: sha512-wCIoFDbt/uwNkWIBF+xV+21k8Z8Sj5qGO3uptTcVmjYcZngOaGGyB4NkiuZhmhG70Pkv+yVrRwoC1+4oav9cCg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+    dev: false
+
+  /@react-types/shared@3.21.0(react@18.2.0):
+    resolution: {integrity: sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@swc/helpers@0.4.14:
+    resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
+    dependencies:
+      tslib: 2.6.0
+    dev: false
+
+  /@swc/helpers@0.4.36:
+    resolution: {integrity: sha512-5lxnyLEYFskErRPenYItLRSge5DjrJngYKdVjRSrWfza9G6KkgHEXi0vUZiyUeMU5JfXH1YnvXZzSp8ul88o2Q==}
+    dependencies:
+      legacy-swc-helpers: /@swc/helpers@0.4.14
+      tslib: 2.6.0
     dev: false
 
   /@swc/helpers@0.5.1:
@@ -3596,6 +3666,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+    dev: false
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@1.9.3:
@@ -4659,6 +4734,24 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
+
+  /framer-motion@10.16.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-p9V9nGomS3m6/CALXqv6nFGMuFOxbWsmaOrdmhyQimMIlLl3LC7h7l86wge/Js/8cRu5ktutS/zlzgR7eBOtFA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.0
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
     dev: false
 
   /fs-extra@11.1.1:
@@ -6618,6 +6711,18 @@ packages:
       vfile: 5.3.7
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /react-modal-sheet@2.2.0(framer-motion@10.16.4)(react@18.2.0):
+    resolution: {integrity: sha512-OAIWuVWxMx3zQqrMLbYWnczadplg0WLd+AaBWmN5+ysNF5/pneqjkOV3AWaIZOCIF4TcrejiCsTduutbzCRP2Q==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      framer-motion: '>=6'
+      react: '>=16'
+    dependencies:
+      '@react-aria/utils': 3.17.0(react@18.2.0)
+      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
     dev: false
 
   /react-popper@2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0):
