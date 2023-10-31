@@ -1,3 +1,5 @@
+import { getBrowserWindow } from './browserClient';
+
 export default {
   NO_DATA: 'No Data',
   DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
@@ -34,3 +36,8 @@ export enum ErrorLevels {
   application = 'application',
   layout = 'layout',
 }
+
+export const BOTTOM_SHEET_MIN_HEIGHT = 400;
+export const MIN_Y = 120; // 바텀시트가 최대로 높이 올라갔을 때의 y 값
+export const MAX_Y = getBrowserWindow() ? window.innerHeight - BOTTOM_SHEET_MIN_HEIGHT : 0; // 바텀시트가 최소로 내려갔을 때의 y 값
+export const BOTTOM_SHEET_MAX_HEIGHT = getBrowserWindow() ? window.innerHeight - MIN_Y : 0; // 바텀시트의 세로 길이
